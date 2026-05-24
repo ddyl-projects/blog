@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-05-24T17:29:18.068Z",
+  "articles": [
+    {
+      "path": "posts/building-blog-with-kiro.md",
+      "title": "Building a personal blog with Kiro",
+      "date": "2026-05-18",
+      "author": "Damian Dyl",
+      "description": "In this article I will walk you through how I built this blog using Kiro. I will also share my thoughts on Kiro and Agentic AI software engineering.",
+      "tags": [
+        "javascript",
+        "css",
+        "kiro"
+      ],
+      "slug": "posts/building-blog-with-kiro"
+    }
+  ]
+}

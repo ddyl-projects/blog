@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# IDE and tooling
+.kiro/
+.vscode/
+
+# Test files
+tests/
+
+# Config files (dev only)
+vitest.config.js
+package-lock.json
+
+# Build scripts (not needed for the live site)
+scripts/

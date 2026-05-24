@@ -1,0 +1,25 @@
+{
+  "name": "technical-blog",
+  "version": "1.0.0",
+  "description": "A simple technical web blog hosted on GitHub Pages with client-side markdown rendering",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest --run",
+    "test:properties": "vitest --run tests/properties/",
+    "test:unit": "vitest --run tests/unit/",
+    "test:coverage": "vitest --run --coverage",
+    "build-manifest": "node scripts/build-manifest.js"
+  },
+  "dependencies": {
+    "highlight.js": "^11.9.0",
+    "js-yaml": "^4.1.0",
+    "marked": "^16.0.0"
+  },
+  "devDependencies": {
+    "fast-check": "^3.15.0",
+    "jsdom": "^29.1.1",
+    "vite": "^6.3.0",
+    "vitest": "^3.1.0"
+  }
+}

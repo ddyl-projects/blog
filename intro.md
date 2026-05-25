@@ -11,4 +11,4 @@ This blog is going to be a chronicle of that journey. It’s not going to be ano
 If you’re wondering what my very first pet project will be, you’re actually looking at it. I decided to use generative AI to build a simple blog website displaying these very articles.
 I’ve documented the entire building process later on in the first post, so check it out to see if the AI actually delivered, or if it gave me the coding equivalent of that Pad Thai.
 
-**A Quick Disclaimer**: While all the thoughts, experiences, and technical ideas on this blog are 100% mine, I use AI as an editorial co-pilot to refine, format, and simplify the text. My goal here is to maximize my time experimenting with new tech and writing about it—delegating the final syntax polish to AI speeds up that pipeline.
+**A Quick Disclaimer**: _While all the thoughts, experiences, and technical ideas on this blog are 100% mine, I use AI as an editorial co-pilot to refine, format, and simplify the text. My goal here is to maximize my time experimenting with new tech and writing about it, delegating the final syntax polish to AI speeds up that pipeline._

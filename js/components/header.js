@@ -13,7 +13,10 @@ export function renderHeader() {
 
   header.innerHTML = `
     <div class="header-content">
-      <img src="assets/images/logo.png" alt="Blog Logo" class="header-logo">
+      <picture>
+        <source media="(max-width: 768px)" srcset="assets/images/logo-mobile.png">
+        <img src="assets/images/logo.png" alt="Blog Logo" class="header-logo">
+      </picture>
     </div>
   `;
 }

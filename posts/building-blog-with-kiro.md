@@ -22,7 +22,7 @@ Without further ado, I purchased the "Kiro Pro" subscription, which gave me 1,00
 
 P.S. Consider this section the "Hello World" of my Kiro journey. If you’d rather skip the play-by-play and dive straight into my unfiltered thoughts and the roadblocks I hit, feel free to jump right down to the summary!
 
-**A Quick Disclaimer**: While all the thoughts, experiences, and technical ideas on this blog are 100% mine, I use AI as an editorial co-pilot to refine, format, and simplify the text. My goal here is to maximize my time experimenting with new tech and writing about it, delegating the final syntax polish to AI speeds up that pipeline.
+**A Quick Disclaimer**: _While all the thoughts, experiences, and technical ideas on this blog are 100% mine, I use AI as an editorial co-pilot to refine, format, and simplify the text. My goal here is to maximize my time experimenting with new tech and writing about it, delegating the final syntax polish to AI speeds up that pipeline._
 
 ## The Vague Kickoff
 I fired up the Kiro IDE for Windows, created a new specification file, and provided the AI Agent with some incredibly vague requirements:
@@ -325,7 +325,7 @@ The specification-driven mode is a game-changer. It actively encourages you to m
 
 I was incredibly impressed by the agent's ability to expand vague, one-sentence prompts into full-blown, production-ready user stories. This didn't just drastically reduce my workload—it also automatically covered edge cases I hadn't even thought about yet.
 
-I was equally impressed by how Kiro walked me through its entire thought process, explaining its actions step-by-step. Even though I was acting purely as a pilot taking the back seat, I always felt plugged into the loop.
+I was equally impressed by how Kiro walked me through its entire thought process, explaining its actions step-by-step. Even though I was in the co-pilot seat letting the AI drive, I always felt completely in the loop.
 
 The agent’s code-generation speed is remarkable. Not only has it rapidly generated all of the code. If I want to make any adjustements I don't have to search for the specific place in code, config or css. I just tell AI to do it and it finds the place for me. Admittedly, my front-end development days are firmly in the rearview mirror, so I decided not to meticulously critique the UI code architecture for this specific project. I’ll save my code-quality judgment for my upcoming projects, where I plan to put Kiro to work on core backend services.
 
@@ -370,10 +370,15 @@ So, how do we automate that trigger so the agent catches its own deployment bugs
 
 I think in my case the answer lies in integrating End-to-End (E2E) testing with a proper browser engine right into the agent's verification loop. If Kiro understands the foundational specification, it should be given the autonomy to spin up a headless browser, visually inspect the DOM elements, and verify the UI rendering against its own design criteria. If it knows what the website is supposed to look like and possesses the execution environment to check its own work, it can theoretically spot and patch layout regressions completely out-of-the-box.
 
+#### Further issues after writing this article
+Unfortunately, the deployment phase brought me right back to reality. When I uploaded the new website to GitHub, I immediately ran into similar environment issues as before. Kiro informed me that due to how the modules are loaded, I would actually need to build the website manually after all. It’s a bit disappointing because any future HTML layout edits will now require a build step, though the core goal remains intact: I can still upload new markdown articles seamlessly without it.
+
+Then came the next snag: GitHub struggled to load markdown files containing YAML front-matter. It took quite a few prompts and some manual debugging on my end to figure out that GitHub was actually returning 404 errors for the articles. Once I pointed this out, Kiro finally diagnosed the culprit: it was an issue with Jekyll running behind the scenes on GitHub Pages.
+
 ### Final Thoughts
 At the end of the day, this was just an experiment to build a simple static blog. And despite the quirks, the file locks, and the visual bugs, the tool drastically accelerated my development velocity.
 
-But as an technical lead and a manager, the experience forced me to look past the code and think about the macro shift happening right now. AI-assisted programming is clearly becoming the norm, but my weekend project left me with a lot of practical questions about how we scale this in the enterprise over the next few years:
+But as a tech lead and a manager, the experience forced me to look past the code and think about the macro shift happening right now. AI-assisted programming is clearly becoming the norm, but my weekend project left me with a lot of practical questions about how we scale this in the enterprise over the next few years:
 
 **The Last Mile of Quality**: How do we get to a point where an AI can write flawless, secure code on the first pass without relying on endless, credit-consuming validation loops?
 

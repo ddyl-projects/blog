@@ -595,13 +595,13 @@ th {
   .content-area {
     max-width: 100%;
     padding: 1.5rem;
-    order: 1;
+    order: 2;
   }
 
   .side-menu {
     width: 100%;
     position: static;
-    order: 2;
+    order: 1;
   }
 
   /* Touch targets: minimum 44x44px for all interactive elements */

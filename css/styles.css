@@ -495,9 +495,17 @@ pre code {
 }
 
 /* Tables */
+.article-content table,
+.linked-content table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 100%;
   margin-bottom: 1.5rem;
 }
 

@@ -1,5 +1,5 @@
 ---
-title: "Connecting Agentic AI to a bank account"
+title: "Connecting Agentic AI to Open Banking: A Hands-On Experiment with MCP"
 date: "2026-06-01"
 author: "Damian Dyl"
 description: "I have used Kiro to develop Open Banking MCP Server. Next I have connected AI Agent to sandbox bank account via Open Banking."

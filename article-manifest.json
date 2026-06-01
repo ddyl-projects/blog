@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T17:29:18.068Z",
+  "generatedAt": "2026-06-01T21:59:15.689Z",
   "articles": [
     {
       "path": "posts/building-blog-with-kiro.md",
@@ -13,6 +13,21 @@
         "kiro"
       ],
       "slug": "posts/building-blog-with-kiro"
+    },
+    {
+      "path": "posts/openbanking-mcp.md",
+      "title": "Connecting Agentic AI to a bank account",
+      "date": "2026-06-01",
+      "author": "Damian Dyl",
+      "description": "I have used Kiro to develop Open Banking MCP Server. Next I have connected AI Agent to sandbox bank account via Open Banking.",
+      "tags": [
+        "mcp",
+        "openbanking",
+        "kiro",
+        "java",
+        "spring-ai"
+      ],
+      "slug": "posts/openbanking-mcp"
     }
   ]
 }

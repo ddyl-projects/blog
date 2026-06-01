@@ -25,9 +25,11 @@ export function formatDate(isoDateString) {
  *
  * @param {string} mdPath - Path to the .md file to render
  * @param {string} backHash - The hash route to return to
+ * @param {number} [scrollPos=0] - Scroll position to restore when going back
  */
-async function renderLinkedMd(mdPath, backHash) {
+async function renderLinkedMd(mdPath, backHash, scrollPos = 0) {
   const contentArea = document.getElementById('content');
+  window.scrollTo(0, 0);
 
   try {
     const response = await fetch(mdPath);
@@ -49,7 +51,7 @@ async function renderLinkedMd(mdPath, backHash) {
 
     contentArea.innerHTML = `
       <div class="linked-document">
-        <button class="back-button" data-back-hash="${backHash}">← Back</button>
+        <button class="back-button" data-back-hash="${backHash}" data-scroll-pos="${scrollPos}">← Back</button>
         ${title ? `<h1>${title}</h1>` : ''}
         <div class="linked-content">
           ${renderedContent}
@@ -60,15 +62,18 @@ async function renderLinkedMd(mdPath, backHash) {
     // Attach back button handler
     const backBtn = contentArea.querySelector('.back-button');
     if (backBtn) {
-      backBtn.addEventListener('click', () => {
+      backBtn.addEventListener('click', async () => {
         const targetHash = backBtn.dataset.backHash;
+        const savedScroll = parseInt(backBtn.dataset.scrollPos, 10) || 0;
         if (window.location.hash === targetHash) {
           // Hash is already the same — hashchange won't fire, so re-render manually
           const slug = targetHash.replace(/^#\/article\//, '');
-          renderArticle(slug);
+          await renderArticle(slug);
         } else {
           window.location.hash = targetHash;
         }
+        // Restore scroll position after re-render
+        setTimeout(() => window.scrollTo(0, savedScroll), 0);
       });
     }
 
@@ -83,7 +88,7 @@ async function renderLinkedMd(mdPath, backHash) {
   } catch (error) {
     contentArea.innerHTML = `
       <div class="error-message">
-        <button class="back-button" data-back-hash="${backHash}">← Back</button>
+        <button class="back-button" data-back-hash="${backHash}" data-scroll-pos="${scrollPos}">← Back</button>
         <h2>Error Loading Document</h2>
         <p>Could not load the linked document.</p>
       </div>
@@ -91,14 +96,16 @@ async function renderLinkedMd(mdPath, backHash) {
 
     const backBtn = contentArea.querySelector('.back-button');
     if (backBtn) {
-      backBtn.addEventListener('click', () => {
+      backBtn.addEventListener('click', async () => {
         const targetHash = backBtn.dataset.backHash;
+        const savedScroll = parseInt(backBtn.dataset.scrollPos, 10) || 0;
         if (window.location.hash === targetHash) {
           const slug = targetHash.replace(/^#\/article\//, '');
-          renderArticle(slug);
+          await renderArticle(slug);
         } else {
           window.location.hash = targetHash;
         }
+        setTimeout(() => window.scrollTo(0, savedScroll), 0);
       });
     }
   }
@@ -119,8 +126,7 @@ function attachMdLinkHandlers(container, currentHash) {
     if (href && !href.startsWith('http://') && !href.startsWith('https://')) {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollTo(0, 0);
-        renderLinkedMd(href, currentHash);
+        renderLinkedMd(href, currentHash, window.scrollY);
       });
     }
   });

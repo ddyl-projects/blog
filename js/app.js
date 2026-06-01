@@ -10,6 +10,7 @@ import { loadManifest, getLatestArticles } from './manifest.js';
 import { renderHeader } from './components/header.js';
 import { renderFooter } from './components/footer.js';
 import { renderSideMenu } from './components/sidemenu.js';
+import 'highlight.js/styles/github.css';
 import { renderIntro } from './components/intro.js';
 import { renderArticle } from './components/article.js';
 import { renderIndexPage } from './components/index-page.js';
@@ -44,7 +45,7 @@ function showError(message) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Configure syntax highlighting for supported languages
-  configureHighlighting(['javascript', 'python', 'typescript', 'html', 'css', 'bash']);
+  configureHighlighting(['javascript', 'python', 'typescript', 'html', 'css', 'bash', 'java']);
 
   // 2. Render header and footer
   renderHeader();

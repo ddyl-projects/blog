@@ -93,6 +93,7 @@ body {
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 .content-area h1 {
@@ -495,16 +496,22 @@ pre code {
 }
 
 /* Tables */
-.article-content table,
-.linked-content table {
-  display: block;
+.table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.article-content table,
+.linked-content table {
+  max-width: 100%;
 }
 
 .styled-table {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .article-content .styled-table table,
@@ -516,7 +523,6 @@ table {
   border-collapse: collapse;
   width: 100%;
   min-width: 100%;
-  margin-bottom: 1.5rem;
 }
 
 th, td {

@@ -59,6 +59,23 @@ export function renderMarkdown(markdown) {
 
   instance.use({
     renderer: {
+      table(token) {
+        // Wrap tables in a scrollable container for mobile
+        const header = token.header.map(cell => {
+          const align = cell.align ? ` style="text-align:${cell.align}"` : '';
+          return `<th${align}>${this.parser.parseInline(cell.tokens)}</th>`;
+        }).join('');
+
+        const body = token.rows.map(row => {
+          const cells = row.map(cell => {
+            const align = cell.align ? ` style="text-align:${cell.align}"` : '';
+            return `<td${align}>${this.parser.parseInline(cell.tokens)}</td>`;
+          }).join('');
+          return `<tr>${cells}</tr>`;
+        }).join('');
+
+        return `<div class="table-wrapper"><table><thead><tr>${header}</tr></thead><tbody>${body}</tbody></table></div>\n`;
+      },
       code({ text, lang }) {
         const language = lang ? lang.toLowerCase() : '';
         const isSupported = language && registeredLanguages.has(language);
